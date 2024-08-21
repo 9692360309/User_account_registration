@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Unlock Account</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Unlock Your Account</h2>
+
+        <form action="/unlock-account" method="post" class="mt-4">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="tempPassword" class="form-label">Temporary Password:</label>
+                <input type="password" class="form-control" id="tempPassword" name="tempPassword" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="newPassword" class="form-label">New Password:</label>
+                <input type="password" class="form-control" id="newPassword" name="newPassword" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Unlock Account</button>
+        </form>
+
+        <p th:if="${error}" th:text="${error}" class="text-danger mt-3"></p>
+        <p th:if="${message}" th:text="${message}" class="text-success mt-3"></p>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
